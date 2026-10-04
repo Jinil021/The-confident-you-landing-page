@@ -40,11 +40,11 @@
     fbq('init', '1405053974467019');
     fbq('track', 'PageView');
 
-    // Fire Lead when "Claim Now" is clicked
+    // Fire Lead when "Claim Now" or "Get It Now" is clicked
     document.addEventListener('click', function (e) {
       var el = e.target.closest('button, a, [role="button"]');
-      if (el && /claim now/i.test(el.innerText || '')) {
-        fbq('track', 'Lead', { value: 299, currency: 'INR' });
+      if (el && /claim now|get it now/i.test(el.innerText || '')) {
+        fbq('track', 'Lead');
       }
     });
   </script>
