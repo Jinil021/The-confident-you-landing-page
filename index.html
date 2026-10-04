@@ -40,7 +40,12 @@
     fbq('init', '1405053974467019');
     fbq('track', 'PageView');
 
-    // Fire Lead when "Claim Now" or "Get It Now" is clicked
+    // Checkout page view (change the text below if your checkout address differs)
+    if (location.href.indexOf('superprofile.bio') !== -1) {
+      fbq('trackCustom', 'CheckoutPageView');
+    }
+
+    // Lead on "Claim Now" and "Get It Now"
     document.addEventListener('click', function (e) {
       var el = e.target.closest('button, a, [role="button"]');
       if (el && /claim now|get it now/i.test(el.innerText || '')) {
